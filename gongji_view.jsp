@@ -77,7 +77,7 @@
         </tr>
       </table>     
       <button type=button class="btt" value="수정" onclick="location.href='gongji_update.jsp?id=<%=id%>'">수정</button>
-      <button type=button class="btt" value="목록" onclick="location.href='gongji_list.jsp'">목록</button>
+      <button type=button class="btt" value="목록" onclick="history.go(-1)">뒤로가기</button>
     </span>
   
   <% 
