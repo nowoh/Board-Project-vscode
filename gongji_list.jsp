@@ -160,7 +160,7 @@
             out.println("<tr><td class='numbering'>"
               + Integer.toString(rset.getInt(1)) + "</td>"
               + "<td><a href='gongji_view.jsp?id=" + rset.getInt(1) + "' class='contents'>"+ rset.getString(2) + "</a></td>"
-              + "<td></td>"
+              + "<td class='numbering'>" + Integer.toString(rset.getInt(5)) + "</td>"
               + "<td class='numbering'>" + rset.getString(3) + "</td></tr>");
             }
         %>

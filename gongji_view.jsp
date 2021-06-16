@@ -52,7 +52,9 @@
         Class.forName("com.mysql.jdbc.Driver"); 
         Connection conn=DriverManager.getConnection("jdbc:mysql://localhost/kopo33","root","kopo33"); 
         Statement stmt=conn.createStatement(); 
+        stmt.execute("update gongji set viewcount = viewcount + 1 where id=" + id + ";");
         ResultSet rset = stmt.executeQuery("select * from gongji where id=" + id + ";");
+        
         if (rset.next()) {
           
   %>
@@ -61,19 +63,21 @@
       <table 1px black border=1>
         <tr>
           <td width=50>번호</td>
-          <td width=500><%=id%></td>
+          <td width=500 colspan="3"><%=id%></td>
         </tr>
         <tr>
           <td>제목</td>
-          <td><%=rset.getString(2)%></td>
+          <td colspan="3"><%=rset.getString(2)%></td>
         </tr>
         <tr>
           <td>일자</td>
           <td><%=rset.getString(3)%></td>
+          <td>조회수</td>
+          <td width=100><%=rset.getInt(5)%></td>
         </tr>
         <tr>
           <td>내용</td>
-          <td><%=rset.getString(4)%></td>
+          <td colspan="3"><%=rset.getString(4)%></td>
         </tr>
       </table>     
       <button type=button class="btt" value="수정" onclick="location.href='gongji_update.jsp?id=<%=id%>'">수정</button>
